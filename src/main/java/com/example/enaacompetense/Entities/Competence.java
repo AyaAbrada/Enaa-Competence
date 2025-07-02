@@ -42,5 +42,21 @@ public class Competence {
         this.sousCompetences = sousCompetences;
     }
 
+    @Transient
+    @JsonProperty("valide")
+    public boolean isValide() {
+        if (sousCompetences == null || sousCompetences.isEmpty()) {
+            return false;
+        }
+        return sousCompetences.stream().allMatch(SubCompetence::isValidee);
+    }
 
+    @Transient
+    @JsonProperty("nonValide")
+    public boolean isNonValide() {
+        if (sousCompetences == null || sousCompetences.isEmpty()) {
+            return true;
+        }
+        return sousCompetences.stream().anyMatch(sc -> !sc.isValidee());
+    }
 }
