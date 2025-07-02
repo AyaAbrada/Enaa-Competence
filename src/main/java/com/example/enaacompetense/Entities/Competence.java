@@ -1,4 +1,5 @@
 package com.example.enaacompetense.Entities;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
@@ -40,4 +41,6 @@ public class Competence {
     public void setSousCompetences(List<SubCompetence> sousCompetences) {
         this.sousCompetences = sousCompetences;
     }
+
+
 }

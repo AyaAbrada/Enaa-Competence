@@ -1,7 +1,5 @@
 package com.example.enaacompetense.Entities;
 import jakarta.persistence.*;
-import java.util.ArrayList;
-import java.util.List;
 
 @Entity
 public class SubCompetence {
@@ -12,12 +10,11 @@ public class SubCompetence {
 
     private String nom;
 
+    private boolean validee;
+
     @ManyToOne
     @JoinColumn(name = "competence_id")
     private Competence competence;
-
-    @OneToMany(mappedBy = "subCompetence", cascade = CascadeType.ALL)
-    private List<Evaluation> evaluations = new ArrayList<>();
 
     public SubCompetence() {}
 
@@ -37,19 +34,19 @@ public class SubCompetence {
         this.nom = nom;
     }
 
+    public boolean isValidee() {
+        return validee;
+    }
+
+    public void setValidee(boolean validee) {
+        this.validee = validee;
+    }
+
     public Competence getCompetence() {
         return competence;
     }
 
     public void setCompetence(Competence competence) {
         this.competence = competence;
-    }
-
-    public List<Evaluation> getEvaluations() {
-        return evaluations;
-    }
-
-    public void setEvaluations(List<Evaluation> evaluations) {
-        this.evaluations = evaluations;
     }
 }

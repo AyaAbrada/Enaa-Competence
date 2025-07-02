@@ -1,9 +1,12 @@
 package com.example.enaacompetense.Services;
 import com.example.enaacompetense.Entities.Competence;
 import com.example.enaacompetense.Repositories.CompetenceRepository;
+import org.springframework.stereotype.Service;
 import java.util.List;
 import java.util.Optional;
 
+
+@Service
 public class CompetenceService {
     private final CompetenceRepository competenceRepository;
 
@@ -19,7 +22,7 @@ public class CompetenceService {
     public void delete(Long id){
         competenceRepository.findById(id);
     }
-    public Optional<Competence> findById(Long id){
+    public Optional<Competence> getById(Long id) {
         return competenceRepository.findById(id);
     }
 }
